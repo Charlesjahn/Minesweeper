@@ -14,6 +14,10 @@ window.onload = function () {
     startGame();
 }
 
+function restartGame(){
+    location.reload();
+}
+
 function setMine() {
 
     while (minesLocations.length < minesCount) {
@@ -100,7 +104,7 @@ function revealMine() {
             let tile = board[r][c]
             if (minesLocations.includes(tile.id)) {
                 tile.innerText = "💣"
-                tile.style.backgroundColor = "rgb(248, 131, 131)";
+                tile.style.backgroundColor = "rgb(189, 72, 72)";
             }
         }
     }
