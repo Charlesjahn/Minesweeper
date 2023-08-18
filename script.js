@@ -19,11 +19,14 @@ function restartGame() {
 }
 
 function clearBoard() {
-    var boardDiv = document.getElementById("board");
-    while (boardDiv.firstChild) {
-        boardDiv.removeChild(boardDiv.firstChild);
-    }
-    board = []
+    return new Promise(function (resolve, reject) {
+        var boardDiv = document.getElementById("board");
+        while (boardDiv.firstChild) {
+            boardDiv.removeChild(boardDiv.firstChild);
+        }
+        board = []
+        resolve(); // A função clearBoard foi concluída
+    });
 }
 
 function setMine() {
@@ -40,30 +43,31 @@ function setMine() {
 }
 
 function startGame() {
+    clearBoard().then(function () {
+        document.getElementById("flag_btn").addEventListener("click", setFlag)
 
-    document.getElementById("flag_btn").addEventListener("click", setFlag)
+        var selectedOption = document.getElementById("minesOption");
+        minesCount = parseInt(selectedOption.value);
+        document.getElementById("mines_count").innerText = minesCount;
 
-    var selectedOption = document.getElementById("minesOption");
-    minesCount = parseInt(selectedOption.value);
-    document.getElementById("mines_count").innerText = minesCount;
+        clearBoard()
 
-    clearBoard()
+        setMine()
 
-    setMine()
-
-    for (let r = 0; r < rows; r++) {
-        let row = [];
-        for (let c = 0; c < colu; c++) {
-            //<div id="0-1">
-            let tile = document.createElement("div");
-            tile.id = r.toString() + "-" + c.toString();
-            tile.addEventListener("click", clicktile)
-            document.getElementById("board").append(tile);
-            row.push(tile)
+        for (let r = 0; r < rows; r++) {
+            let row = [];
+            for (let c = 0; c < colu; c++) {
+                //<div id="0-1">
+                let tile = document.createElement("div");
+                tile.id = r.toString() + "-" + c.toString();
+                tile.addEventListener("click", clicktile)
+                document.getElementById("board").append(tile);
+                row.push(tile)
+            }
+            board.push(row);
         }
-        board.push(row);
-    }
-    console.log(board)
+        console.log(board)
+    });
 }
 
 
