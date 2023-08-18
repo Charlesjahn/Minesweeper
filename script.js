@@ -2,7 +2,7 @@ var board = []
 var rows = 8;
 var colu = 8;
 
-var minesCount = 5;
+var minesCount = 7;
 var minesLocations = [];
 
 var tilesclicked = 0;
