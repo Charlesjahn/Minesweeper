@@ -45,7 +45,8 @@ body {
     height: 400px;
     border: 10px solid var(--color-darkBlue);
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;    
+    justify-content: space-evenly;
     margin: 2em 0;
     user-select: none;
 }
