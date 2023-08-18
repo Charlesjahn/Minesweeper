@@ -102,8 +102,9 @@ function clicktile() {
         return
     }
     if (minesLocations.includes(tile.id)) {
+        
+        document.getElementById("gameOver").innerText = "GAME OVER"
         revealMine();
-        // alert("GAME OVER");
         gameOver = true;
         return;
     }
