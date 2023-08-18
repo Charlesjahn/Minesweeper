@@ -1,0 +1,102 @@
+:root {
+    --color-white: rgb(233, 233, 233);
+    --color-darkBlue: rgb(2, 19, 35);
+    --color-black1: rgb(14, 14, 14);
+    --color-black2: rgb(41, 41, 41);
+    --color-grey: rgb(175, 175, 175);
+    --color-lightblue: rgb(76, 162, 244);
+    --color-lightpink: rgb(248, 78, 146);
+
+    --color-darkBlueTrans: rgb(2, 19, 35, 0.5);
+    --color-black1Trans: rgb(14, 14, 14, 0.5);
+    --color-black2Trans: rgb(41, 41, 41, 0.5);
+    --color-greyTrans: rgba(175, 175, 175, 0.5);
+    --color-lightblueTrans: rgb(76, 162, 244, 0.5);
+    --color-lightpinkTrans: rgb(248, 78, 146, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+body {
+    background-color: var(--color-grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main_minesweeper {
+    background-color: var(--color-white);
+    width: 400px;
+    height: 400px;
+    border: 10px solid var(--color-black1);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2em 0;
+    user-select: none;
+}
+
+#board div {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--color-black2Trans);
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+}
+
+.tile-clicked {
+    background-color: darkgrey;
+}
+
+.x1{
+    color: rgb(53, 53, 255);
+}
+.x2{
+    color: rgb(53, 247, 53);
+}
+.x3{
+    color: rgb(255, 34, 34);
+}
+.x4{
+    color: rgb(0, 0, 143);
+}
+.x5{
+    color: rgb(255, 126, 148);
+}
+.x6{
+    color: rgb(0, 134, 134);
+}
+.x7{
+    color: rgb(0, 0, 0);
+}
+.x8{
+    color: rgb(139, 0, 139);
+}
+
+#flag_btn{
+    width: 80px;
+    height: 50px;
+    font-size: 35px;
+    background-color: var(--color-white);
+    border: none;
+    margin: 0 0.5em 0.5em 0.5em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#flag_btn:hover{
+    box-shadow: 0px 0px 10px var(--color-black1);
+}
