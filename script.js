@@ -14,8 +14,16 @@ window.onload = function () {
     startGame();
 }
 
-function restartGame(){
+function restartGame() {
     location.reload();
+}
+
+function clearBoard() {
+    var boardDiv = document.getElementById("board");
+    while (boardDiv.firstChild) {
+        boardDiv.removeChild(boardDiv.firstChild);
+    }
+    board = []
 }
 
 function setMine() {
@@ -29,13 +37,18 @@ function setMine() {
             minesLocations.push(location);
         }
     }
-    console.log(minesLocations)
-
 }
 
 function startGame() {
-    document.getElementById("mines_count").innerText = minesCount;
+
     document.getElementById("flag_btn").addEventListener("click", setFlag)
+
+    var selectedOption = document.getElementById("minesOption");
+    minesCount = parseInt(selectedOption.value);
+    document.getElementById("mines_count").innerText = minesCount;
+
+    clearBoard()
+
     setMine()
 
     for (let r = 0; r < rows; r++) {
@@ -60,9 +73,8 @@ function setFlag() {
         document.getElementById("flag_btn").style.backgroundColor = "rgb(233, 233, 233)";
     }
     else {
-
         flagEnable = true;
-        document.getElementById("flag_btn").style.backgroundColor = "rgb(14, 14, 14)";
+        document.getElementById("flag_btn").style.backgroundColor = "rgb(2, 19, 35)";
     }
 }
 
@@ -164,7 +176,6 @@ function checkMine(r, c) {
         gameOver = true
     }
 }
-
 
 function checktile(r, c) {
 

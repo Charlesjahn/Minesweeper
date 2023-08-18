@@ -113,6 +113,7 @@ button:hover{
 }
 
 
+
 @media only screen and (max-width: 750px) {
     .main_minesweeper {
         width: 320px;
@@ -125,3 +126,5 @@ button:hover{
         font-size: 20px;
     }
 }
+
+

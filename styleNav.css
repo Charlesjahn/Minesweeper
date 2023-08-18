@@ -35,3 +35,27 @@ header a{
 header a:hover{
     color: var(--color-lightpink);
 }
+
+
+.mine_title{
+    font-size: larger;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: var(--color-white);
+}
+.mine_title label{
+    margin: 0 0.5em;
+}
+.mine_title select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    padding: 5px;
+    background: white;
+    width: 45px;
+    font-size: 1em;
+    text-align: center;
+    border-radius: 5px;
+}
