@@ -66,7 +66,6 @@ function startGame() {
             }
             board.push(row);
         }
-        console.log(board)
     });
 }
 
