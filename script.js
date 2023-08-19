@@ -1,8 +1,8 @@
 var board = []
-var rows = 8;
-var colu = 8;
+var rows = 6;
+var colu = 6;
 
-var minesCount = 7;
+var minesCount = 6;
 var minesLocations = [];
 
 var tilesclicked = 0;
@@ -12,18 +12,22 @@ var gameOver = false;
 
 window.onload = function () {
     startGame();
+    checkScreenSize();
 }
 
 function restartGame() {
     location.reload();
+    checkScreenSize();
 }
 
 function clearBoard() {
+    setlevel()
     return new Promise(function (resolve, reject) {
         var boardDiv = document.getElementById("board");
         while (boardDiv.firstChild) {
             boardDiv.removeChild(boardDiv.firstChild);
         }
+
         board = []
         resolve(); // A função clearBoard foi concluída
     });
@@ -42,15 +46,50 @@ function setMine() {
     }
 }
 
+function setlevel() {
+
+    var selectedOption = document.getElementById("minesOption");
+    selectLVL = selectedOption.value;
+
+
+    var lvl = document.getElementById("board");
+
+    if (selectLVL == "easy") {
+
+        lvl.className = "minesweeper_easy";
+        rows = 6;
+        colu = 6;
+        minesCount = 6;
+    }
+
+    if (selectLVL == "medium") {
+        lvl.className = "minesweeper_medium";
+        rows = 8;
+        colu = 8;
+        minesCount = 10;
+    }
+    if (selectLVL == "hard") {
+        lvl.className = "minesweeper_hard";
+        rows = 12;
+        colu = 12;
+        minesCount = 19;
+    }
+    if (selectLVL == "veryhard") {
+        lvl.className = "minesweeper_veryhard";
+        rows = 12;
+        colu = 20;
+        minesCount = 35;
+    }
+
+
+
+    document.getElementById("mines_count").innerText = minesCount;
+
+}
+
 function startGame() {
     clearBoard().then(function () {
         document.getElementById("flag_btn").addEventListener("click", setFlag)
-
-        var selectedOption = document.getElementById("minesOption");
-        minesCount = parseInt(selectedOption.value);
-        document.getElementById("mines_count").innerText = minesCount;
-
-        clearBoard()
 
         setMine()
 
@@ -66,6 +105,7 @@ function startGame() {
             }
             board.push(row);
         }
+        console.log(board)
     });
 }
 
@@ -101,7 +141,7 @@ function clicktile() {
         return
     }
     if (minesLocations.includes(tile.id)) {
-        
+
         document.getElementById("gameOver").innerText = "GAME OVER"
         revealMine();
         gameOver = true;
@@ -190,4 +230,13 @@ function checktile(r, c) {
         return 1
     }
     return 0
+}
+
+function checkScreenSize() {
+    var veryHardOption = document.getElementById("veryHardOption");
+    if (window.innerWidth < 1726) {
+        veryHardOption.disabled = true;
+    } else {
+        veryHardOption.disabled = false;
+    }
 }

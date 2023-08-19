@@ -20,10 +20,10 @@
         <div class="mine_title">
             <label for="section"> Total Mines:</label>
             <select id="minesOption" onChange="startGame()">
-                <option value="7">7</option>
-                <option value="9">9</option>
-                <option value="11">11</option>
-                <option value="13">13</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+                <option value="veryhard" id="veryHardOption">Very hard</option>
             </select>
         </div>
 
@@ -33,15 +33,18 @@
 
     <section>
 
-        <h1>Minesweeper</h1>
+        <div class="div_info">
+            <h1>Minesweeper</h1>
             <h2 id="gameOver">Mines: <span id="mines_count">0</span></h2>
-
-
-        <div class="main_minesweeper" id="board">
         </div>
 
-        <button id="flag_btn">🚩</button>
-        <button id="reset" onclick="restartGame()">Reset</button>
+
+        <div id="board"></div>
+
+        <div class="divsbtn">
+            <button id="flag_btn">🚩</button>
+            <button id="reset" onclick="restartGame()">Reset</button>
+        </div>
 
     </section>
 
